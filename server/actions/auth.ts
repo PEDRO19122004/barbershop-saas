@@ -3,7 +3,7 @@
 import { z } from "zod"
 import bcrypt from "bcryptjs"
 import { AuthError } from "next-auth"
-import { signIn } from "@/lib/auth"
+import { signIn, signOut } from "@/lib/auth"
 import { db } from "@/lib/db"
 
 const signInSchema = z.object({
@@ -66,4 +66,8 @@ export async function signUpAction(input: unknown) {
 
 export async function signInWithGoogleAction() {
   await signIn("google", { redirectTo: "/onboarding" })
+}
+
+export async function signOutAction() {
+  await signOut({ redirectTo: "/entrar" })
 }
