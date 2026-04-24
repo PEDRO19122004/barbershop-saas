@@ -128,3 +128,27 @@
     @apply font-sans;
   }
 }
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.4;
+  }
+  33% {
+    transform: scale(1.12) translate(4%, 3%);
+    opacity: 0.55;
+  }
+  66% {
+    transform: scale(0.96) translate(-3%, 5%);
+    opacity: 0.35;
+  }
+}
