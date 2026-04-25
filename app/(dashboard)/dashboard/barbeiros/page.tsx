@@ -1,8 +1,9 @@
-export default function BarbeirosPage() {
-  return (
-    <div className="space-y-4">
-      <h1 className="text-3xl font-bold tracking-tight text-white">Barbeiros</h1>
-      <p className="text-zinc-400">Em construção — parte 4.2</p>
-    </div>
-  )
+import { requireBarbershop } from "@/lib/session"
+import { listBarbers } from "@/server/actions/barbers"
+import { BarbersClient } from "./BarbersClient"
+
+export default async function BarbeirosPage() {
+  await requireBarbershop()
+  const barbers = await listBarbers()
+  return <BarbersClient barbers={barbers} />
 }

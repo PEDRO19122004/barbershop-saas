@@ -1,8 +1,9 @@
-export default function ServicosPage() {
-  return (
-    <div className="space-y-4">
-      <h1 className="text-3xl font-bold tracking-tight text-white">Serviços</h1>
-      <p className="text-zinc-400">Em construção — parte 4.2</p>
-    </div>
-  )
+import { requireBarbershop } from "@/lib/session"
+import { listServices } from "@/server/actions/services"
+import { ServicesClient } from "./ServicesClient"
+
+export default async function ServicosPage() {
+  await requireBarbershop()
+  const services = await listServices()
+  return <ServicesClient services={services} />
 }
