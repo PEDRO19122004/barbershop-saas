@@ -11,7 +11,8 @@
     "db:studio": "dotenv -e .env -- prisma studio",
     "db:generate": "dotenv -e .env -- prisma generate",
     "db:push": "dotenv -e .env -- prisma db push",
-    "db:seed": "dotenv -e .env -- tsx prisma/seed.ts"
+    "db:seed": "dotenv -e .env -- tsx prisma/seed.ts",
+    "db:cleanup": "tsx prisma/cleanup.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.2",
