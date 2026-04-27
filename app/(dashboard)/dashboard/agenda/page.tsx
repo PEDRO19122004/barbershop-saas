@@ -1,8 +1,32 @@
-export default function AgendaPage() {
+import { AgendaClient } from "./AgendaClient"
+import {
+  listAppointmentsForDashboard,
+  getDashboardMetrics,
+} from "@/server/actions/dashboard-appointments"
+
+type Filter = "today" | "week" | "month" | "all"
+
+const VALID_FILTERS: Filter[] = ["today", "week", "month", "all"]
+
+export default async function AgendaPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ filter?: string }>
+}) {
+  const { filter: rawFilter } = await searchParams
+  const currentFilter: Filter =
+    VALID_FILTERS.includes(rawFilter as Filter) ? (rawFilter as Filter) : "week"
+
+  const [appointments, metrics] = await Promise.all([
+    listAppointmentsForDashboard(currentFilter),
+    getDashboardMetrics(),
+  ])
+
   return (
-    <div className="space-y-4">
-      <h1 className="text-3xl font-bold tracking-tight text-white">Agenda</h1>
-      <p className="text-zinc-400">Em construção — parte 4.4</p>
-    </div>
+    <AgendaClient
+      appointments={appointments}
+      metrics={metrics}
+      currentFilter={currentFilter}
+    />
   )
 }
