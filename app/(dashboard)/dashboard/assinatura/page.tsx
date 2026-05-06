@@ -1,8 +1,19 @@
-export default function AssinaturaPage() {
+import { getSubscriptionStatus } from "@/server/actions/stripe"
+import { SubscriptionPanel } from "./SubscriptionPanel"
+
+export default async function AssinaturaPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ success?: string; canceled?: string; required?: string }>
+}) {
+  const params = await searchParams
+  const subscription = await getSubscriptionStatus()
+
   return (
-    <div className="space-y-4">
-      <h1 className="text-3xl font-bold tracking-tight text-white">Assinatura</h1>
-      <p className="text-zinc-400">Em construção — parte 4.3</p>
-    </div>
+    <SubscriptionPanel
+      subscription={subscription}
+      successFlag={params.success === "true"}
+      canceledFlag={params.canceled === "true"}
+    />
   )
 }

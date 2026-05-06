@@ -79,6 +79,7 @@ model Subscription {
   stripeSubscriptionId String?            @unique
   stripePriceId        String?
   status               SubscriptionStatus @default(TRIALING)
+  currentPeriodStart   DateTime?
   currentPeriodEnd     DateTime?
   cancelAtPeriodEnd    Boolean            @default(false)
   createdAt            DateTime           @default(now())

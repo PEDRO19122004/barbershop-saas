@@ -1,7 +1,10 @@
+import { redirect } from "next/navigation"
 import { requireAuth, requireBarbershop } from "@/lib/session"
+import { db } from "@/lib/db"
 import { Sidebar } from "@/components/shared/Sidebar"
 import { DashboardHeader } from "@/components/shared/DashboardHeader"
 import { MobileNavSheet } from "@/components/shared/MobileNavSheet"
+import { PastDueBanner } from "@/components/shared/PastDueBanner"
 
 export default async function DashboardLayout({
   children,
@@ -10,6 +13,14 @@ export default async function DashboardLayout({
 }) {
   const user = await requireAuth()
   const barbershop = await requireBarbershop()
+
+  const subscription = await db.subscription.findUnique({
+    where: { userId: user.id! },
+  })
+
+  if (subscription?.status === "CANCELED") {
+    redirect("/dashboard/assinatura?required=true")
+  }
 
   const sidebarUser = {
     name: user.name ?? "Usuário",
@@ -20,13 +31,12 @@ export default async function DashboardLayout({
 
   return (
     <div className="flex min-h-screen bg-zinc-950">
-      {/* Desktop sidebar (fixed) */}
       <div className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
         <Sidebar user={sidebarUser} barbershop={sidebarBarbershop} />
       </div>
 
-      {/* Content area */}
       <div className="flex flex-1 flex-col md:pl-64">
+        {subscription?.status === "PAST_DUE" && <PastDueBanner />}
         <DashboardHeader
           barbershopSlug={barbershop.slug}
           user={{ name: sidebarUser.name, image: sidebarUser.image }}
