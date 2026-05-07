@@ -137,7 +137,7 @@ export async function createAppointmentAction(
       barberId,
       startTime,
       endTime,
-      status: "CONFIRMED",
+      status: "PENDING",
       notes: notes || null,
       priceInCents: service.priceInCents,
     },

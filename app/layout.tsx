@@ -14,10 +14,40 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "BarberSaaS — Agendamento para Barbearias",
+  title: {
+    default: "BarberSaaS — Agendamento online para barbearias",
+    template: "%s | BarberSaaS",
+  },
   description:
-    "A plataforma que simplifica o agendamento da sua barbearia. Clientes agendam sozinhos e você foca no que importa.",
-}
+    "Plataforma completa de agendamento para barbearias. Clientes agendam sozinhos pelo celular, você foca no corte. Sem aplicativo, sem dor de cabeça.",
+  keywords: [
+    "agendamento barbearia",
+    "sistema barbearia",
+    "agenda barbeiro",
+    "marcação online barbearia",
+    "BarberSaaS",
+  ],
+  authors: [{ name: "BarberSaaS" }],
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "https://barbersaas.com.br",
+    siteName: "BarberSaaS",
+    title: "BarberSaaS — Agendamento online para barbearias",
+    description:
+      "Clientes agendam sozinhos pelo celular. Você foca no corte. Sem aplicativo.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BarberSaaS — Agendamento online para barbearias",
+    description:
+      "Clientes agendam sozinhos. Você foca no corte. Sem aplicativo.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function RootLayout({
   children,

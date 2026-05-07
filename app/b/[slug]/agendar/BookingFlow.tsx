@@ -111,16 +111,23 @@ export function BookingFlow({ barbershop, services, barbers }: Props) {
             />
           )}
 
-          {step === 3 && barberId && serviceId && (
-            <StepDateTime
-              barbershopSlug={barbershop.slug}
-              barberId={barberId}
-              serviceId={serviceId}
-              selectedDate={dateISO}
-              selectedTime={time}
-              onSelect={(date, t) => updateUrl({ date, time: t })}
-            />
-          )}
+         {step === 3 && barberId && serviceId && (
+  <StepDateTime
+    barbershopSlug={barbershop.slug}
+    barberId={barberId}
+    serviceId={serviceId}
+    selectedDate={dateISO}
+    selectedTime={time}
+    onSelect={(date, t) => {
+      // Avança automaticamente pro Step 4 quando data E hora estão escolhidas
+      const updates: Record<string, string | null> = { date, time: t }
+      if (date && t) {
+        updates.step = "4"
+      }
+      updateUrl(updates)
+    }}
+  />
+)}
 
           {step === 4 && serviceId && barberId && dateISO && time && (
             <StepCustomerData

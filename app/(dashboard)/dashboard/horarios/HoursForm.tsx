@@ -127,18 +127,18 @@ export function HoursForm({ initialHours }: HoursFormProps) {
                 ) : (
                   <div className="flex items-center gap-2">
                     <Input
-                      type="time"
-                      className="w-28 h-8 text-sm"
-                      disabled={isClosed}
-                      {...register(`days.${index}.openTime`)}
-                    />
+  type="time"
+  className="w-28 h-8 text-sm bg-zinc-800 border-zinc-700 text-white [color-scheme:dark]"
+  disabled={isClosed}
+  {...register(`days.${index}.openTime`)}
+/>
                     <span className="text-zinc-400 text-sm">às</span>
-                    <Input
-                      type="time"
-                      className="w-28 h-8 text-sm"
-                      disabled={isClosed}
-                      {...register(`days.${index}.closeTime`)}
-                    />
+                   <Input
+  type="time"
+  className="w-28 h-8 text-sm bg-zinc-800 border-zinc-700 text-white [color-scheme:dark]"
+  disabled={isClosed}
+  {...register(`days.${index}.openTime`)}
+/>
                   </div>
                 )}
               </div>

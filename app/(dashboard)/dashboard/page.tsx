@@ -148,12 +148,24 @@ export default async function DashboardOverviewPage() {
                       {format(new Date(appt.startTime), "HH:mm")}
                     </p>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-zinc-400">{appt.service.name}</span>
-                    <Badge className="bg-blue-500/10 text-blue-400 border border-blue-500/20 hover:bg-blue-500/10">
-                      Confirmado
-                    </Badge>
-                  </div>
+                <div className="flex items-center gap-2">
+  <span className="text-sm text-zinc-400">{appt.service.name}</span>
+  {(() => {
+    const statusMap: Record<string, { label: string; className: string }> = {
+      PENDING: { label: "Pendente", className: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20" },
+      CONFIRMED: { label: "Confirmado", className: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
+      COMPLETED: { label: "Concluído", className: "bg-green-500/10 text-green-400 border-green-500/20" },
+      CANCELED: { label: "Cancelado", className: "bg-red-500/10 text-red-400 border-red-500/20" },
+      NO_SHOW: { label: "Não compareceu", className: "bg-zinc-500/10 text-zinc-400 border-zinc-500/20" },
+    };
+    const meta = statusMap[appt.status] ?? statusMap.PENDING;
+    return (
+      <Badge className={`${meta.className} border hover:bg-transparent`}>
+        {meta.label}
+      </Badge>
+    );
+  })()}
+</div>
                 </div>
               ))}
             </div>

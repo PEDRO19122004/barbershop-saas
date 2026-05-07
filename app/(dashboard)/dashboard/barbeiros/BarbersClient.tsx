@@ -123,8 +123,8 @@ export function BarbersClient({ barbers: initialBarbers }: BarbersClientProps) {
 
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="icon-sm">
-                      <MoreVertical className="size-4" />
+                    <Button variant="ghost" size="icon" className="size-8 text-zinc-400 hover:text-white hover:bg-zinc-800">
+  <MoreVertical className="size-4" />
                       <span className="sr-only">Ações</span>
                     </Button>
                   </DropdownMenuTrigger>

@@ -142,11 +142,11 @@ export function ServicesClient({ services: initialServices }: ServicesClientProp
                   <TableCell className="text-right">
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon-sm">
-                          <MoreHorizontal className="size-4" />
-                          <span className="sr-only">Ações</span>
-                        </Button>
-                      </DropdownMenuTrigger>
+  <Button variant="ghost" size="icon" className="size-8 text-zinc-400 hover:text-white hover:bg-zinc-800">
+    <MoreHorizontal className="size-4" />
+    <span className="sr-only">Ações</span>
+  </Button>
+</DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuItem onClick={() => openEdit(service)}>
                           Editar
