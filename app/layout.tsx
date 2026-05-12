@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   },
   description:
     "Plataforma completa de agendamento para barbearias. Clientes agendam sozinhos pelo celular, você foca no corte. Sem aplicativo, sem dor de cabeça.",
+    manifest: "/manifest.json", 
   keywords: [
     "agendamento barbearia",
     "sistema barbearia",
