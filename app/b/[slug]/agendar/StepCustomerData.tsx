@@ -124,20 +124,20 @@ export function StepCustomerData({
       <div className="grid md:grid-cols-2 gap-8">
         {/* Form */}
         <div>
-          <h2 className="text-xl font-bold text-white">Quase lá!</h2>
-          <p className="text-zinc-400 mt-1">
+          <h2 className="text-xl font-bold text-foreground">Quase lá!</h2>
+          <p className="text-muted-foreground mt-1">
             Preencha seus dados para confirmar o agendamento
           </p>
 
           <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
             <div className="space-y-1.5">
-              <Label htmlFor="customerName" className="text-zinc-300">
+              <Label htmlFor="customerName" className="text-foreground/80">
                 Nome completo
               </Label>
               <Input
                 id="customerName"
                 placeholder="João Silva"
-                className="bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-600"
+                className="bg-card border-border text-foreground placeholder:text-zinc-600"
                 {...register("customerName")}
               />
               {errors.customerName && (
@@ -146,13 +146,13 @@ export function StepCustomerData({
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="customerPhone" className="text-zinc-300">
+              <Label htmlFor="customerPhone" className="text-foreground/80">
                 Telefone
               </Label>
               <Input
                 id="customerPhone"
                 placeholder="(11) 99999-9999"
-                className="bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-600"
+                className="bg-card border-border text-foreground placeholder:text-zinc-600"
                 {...register("customerPhone")}
                 onChange={(e) => {
                   const formatted = formatPhone(e.target.value)
@@ -166,15 +166,15 @@ export function StepCustomerData({
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="customerEmail" className="text-zinc-300">
+              <Label htmlFor="customerEmail" className="text-foreground/80">
                 E-mail{" "}
-                <span className="text-zinc-500 text-xs">(opcional)</span>
+                <span className="text-muted-foreground text-xs">(opcional)</span>
               </Label>
               <Input
                 id="customerEmail"
                 type="email"
                 placeholder="joao@email.com"
-                className="bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-600"
+                className="bg-card border-border text-foreground placeholder:text-zinc-600"
                 {...register("customerEmail")}
               />
               {errors.customerEmail && (
@@ -183,15 +183,15 @@ export function StepCustomerData({
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="notes" className="text-zinc-300">
+              <Label htmlFor="notes" className="text-foreground/80">
                 Observações{" "}
-                <span className="text-zinc-500 text-xs">(opcional)</span>
+                <span className="text-muted-foreground text-xs">(opcional)</span>
               </Label>
               <Textarea
                 id="notes"
                 rows={3}
                 placeholder="Alguma observação para o profissional?"
-                className="bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-600 resize-none"
+                className="bg-card border-border text-foreground placeholder:text-zinc-600 resize-none"
                 {...register("notes")}
               />
             </div>
@@ -216,8 +216,8 @@ export function StepCustomerData({
 
         {/* Summary */}
         <div className="md:sticky md:top-6 h-fit">
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
-            <p className="font-semibold text-white">Resumo do agendamento</p>
+          <div className="bg-card border border-border rounded-xl p-6">
+            <p className="font-semibold text-foreground">Resumo do agendamento</p>
 
             <div className="mt-4 divide-y divide-zinc-800">
               <SummaryRow label="Serviço" value={service?.name ?? "—"} />
@@ -244,9 +244,9 @@ export function StepCustomerData({
             </div>
 
             {service && (
-              <div className="mt-4 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                <span className="text-zinc-400">Total</span>
-                <span className="text-xl font-bold text-white">
+              <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                <span className="text-muted-foreground">Total</span>
+                <span className="text-xl font-bold text-foreground">
                   {formatCurrency(service.priceInCents)}
                 </span>
               </div>
@@ -269,9 +269,9 @@ function SummaryRow({
 }) {
   return (
     <div className="py-3 flex justify-between gap-4">
-      <span className="text-sm text-zinc-400 shrink-0">{label}</span>
+      <span className="text-sm text-muted-foreground shrink-0">{label}</span>
       <span
-        className={`text-sm text-white text-right ${capitalize ? "capitalize" : ""}`}
+        className={`text-sm text-foreground text-right ${capitalize ? "capitalize" : ""}`}
       >
         {value}
       </span>

@@ -34,16 +34,16 @@ export function DashboardHeader({ barbershopSlug, user, mobileNavTrigger }: Dash
   const currentLabel = routeLabels[pathname] ?? "Dashboard"
 
   return (
-    <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-zinc-800 bg-zinc-950/80 px-6 backdrop-blur lg:px-8">
+    <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-border bg-background/80 px-6 backdrop-blur lg:px-8">
       {/* Left: mobile nav + breadcrumb */}
       <div className="flex items-center gap-3">
         {mobileNavTrigger}
         <nav className="flex items-center gap-1.5 text-sm">
-          <Link href="/dashboard" className="text-zinc-400 hover:text-white transition-colors">
+          <Link href="/dashboard" className="text-muted-foreground hover:text-foreground transition-colors">
             Dashboard
           </Link>
           <span className="text-zinc-600">/</span>
-          <span className="text-white font-medium">{currentLabel}</span>
+          <span className="text-foreground font-medium">{currentLabel}</span>
         </nav>
       </div>
 
@@ -61,7 +61,7 @@ export function DashboardHeader({ barbershopSlug, user, mobileNavTrigger }: Dash
           </a>
         </Button>
 
-        <div className="h-6 w-px bg-zinc-800" />
+        <div className="h-6 w-px bg-muted" />
 
         <Avatar size="sm" className="size-8">
           {user.image && <AvatarImage src={user.image} alt={user.name} />}

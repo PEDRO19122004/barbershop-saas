@@ -70,8 +70,8 @@ export function SubscriptionPanel({ subscription, successFlag, canceledFlag }: P
   return (
     <div className="container max-w-3xl mx-auto space-y-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-white">Assinatura</h1>
-        <p className="mt-1 text-zinc-400">Gerencie seu plano e método de pagamento</p>
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">Assinatura</h1>
+        <p className="mt-1 text-muted-foreground">Gerencie seu plano e método de pagamento</p>
       </div>
 
       {status === "PAST_DUE" && (
@@ -84,7 +84,7 @@ export function SubscriptionPanel({ subscription, successFlag, canceledFlag }: P
         </div>
       )}
 
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-8">
+      <div className="rounded-xl border border-border bg-card p-8">
         {(status === "ACTIVE" || status === "PAST_DUE") && (
           <>
             <div className="flex items-start justify-between gap-4">
@@ -98,17 +98,17 @@ export function SubscriptionPanel({ subscription, successFlag, canceledFlag }: P
                     Pagamento pendente
                   </Badge>
                 )}
-                <h2 className="text-xl font-semibold text-white">Plano Mensal</h2>
+                <h2 className="text-xl font-semibold text-foreground">Plano Mensal</h2>
               </div>
               <div className="text-right">
-                <p className="text-3xl font-bold text-white">R$ 49,00</p>
-                <p className="text-sm text-zinc-400">/ mês</p>
+                <p className="text-3xl font-bold text-foreground">R$ 49,00</p>
+                <p className="text-sm text-muted-foreground">/ mês</p>
               </div>
             </div>
 
             <ul className="mt-6 space-y-2">
               {features.map((f) => (
-                <li key={f} className="flex items-center gap-2 text-sm text-zinc-300">
+                <li key={f} className="flex items-center gap-2 text-sm text-foreground/80">
                   <Check size={15} className="shrink-0 text-emerald-400" />
                   {f}
                 </li>
@@ -116,9 +116,9 @@ export function SubscriptionPanel({ subscription, successFlag, canceledFlag }: P
             </ul>
 
             {subscription?.currentPeriodEnd && status === "ACTIVE" && (
-              <p className="mt-6 text-sm text-zinc-400">
+              <p className="mt-6 text-sm text-muted-foreground">
                 Próxima cobrança em{" "}
-                <span className="text-white">{formatDate(subscription.currentPeriodEnd)}</span>
+                <span className="text-foreground">{formatDate(subscription.currentPeriodEnd)}</span>
               </p>
             )}
 
@@ -137,7 +137,7 @@ export function SubscriptionPanel({ subscription, successFlag, canceledFlag }: P
                 variant="outline"
                 onClick={handlePortal}
                 disabled={isPendingPortal}
-                className="border-zinc-700"
+                className="border-border"
               >
                 {isPendingPortal ? (
                   <Loader2 size={15} className="mr-2 animate-spin" />
@@ -156,12 +156,12 @@ export function SubscriptionPanel({ subscription, successFlag, canceledFlag }: P
               <Badge className="bg-blue-500/15 text-blue-400 border-blue-500/30 hover:bg-blue-500/15">
                 Período de teste
               </Badge>
-              <h2 className="text-xl font-semibold text-white">Plano Mensal</h2>
-              <p className="text-sm text-zinc-400">
+              <h2 className="text-xl font-semibold text-foreground">Plano Mensal</h2>
+              <p className="text-sm text-muted-foreground">
                 Você está no período de teste gratuito.
                 {subscription?.currentPeriodEnd && (
                   <> Trial expira em{" "}
-                    <span className="text-white">{formatDate(subscription.currentPeriodEnd)}</span>
+                    <span className="text-foreground">{formatDate(subscription.currentPeriodEnd)}</span>
                   </>
                 )}
               </p>
@@ -169,7 +169,7 @@ export function SubscriptionPanel({ subscription, successFlag, canceledFlag }: P
 
             <ul className="mt-6 space-y-2">
               {features.map((f) => (
-                <li key={f} className="flex items-center gap-2 text-sm text-zinc-300">
+                <li key={f} className="flex items-center gap-2 text-sm text-foreground/80">
                   <Check size={15} className="shrink-0 text-emerald-400" />
                   {f}
                 </li>
@@ -193,8 +193,8 @@ export function SubscriptionPanel({ subscription, successFlag, canceledFlag }: P
         {(!status || status === "CANCELED" || status === "INCOMPLETE") && (
           <>
             <div className="space-y-1">
-              <h2 className="text-xl font-semibold text-white">Plano Mensal</h2>
-              <p className="text-sm text-zinc-400">
+              <h2 className="text-xl font-semibold text-foreground">Plano Mensal</h2>
+              <p className="text-sm text-muted-foreground">
                 {status === "CANCELED"
                   ? "Sua assinatura foi cancelada."
                   : "Você não tem uma assinatura ativa."}
@@ -202,13 +202,13 @@ export function SubscriptionPanel({ subscription, successFlag, canceledFlag }: P
             </div>
 
             <div className="mt-4 flex items-baseline gap-1">
-              <span className="text-3xl font-bold text-white">R$ 49,00</span>
-              <span className="text-sm text-zinc-400">/ mês</span>
+              <span className="text-3xl font-bold text-foreground">R$ 49,00</span>
+              <span className="text-sm text-muted-foreground">/ mês</span>
             </div>
 
             <ul className="mt-6 space-y-2">
               {features.map((f) => (
-                <li key={f} className="flex items-center gap-2 text-sm text-zinc-300">
+                <li key={f} className="flex items-center gap-2 text-sm text-foreground/80">
                   <Check size={15} className="shrink-0 text-emerald-400" />
                   {f}
                 </li>

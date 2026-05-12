@@ -15,17 +15,17 @@ export default function HomePage() {
       <section className="flex flex-col items-center text-center py-24 md:py-32 px-4">
         <Badge
           variant="outline"
-          className="mb-6 border-zinc-700 text-zinc-300 px-3 py-1 h-auto text-sm"
+          className="mb-6 border-border text-foreground/80 px-3 py-1 h-auto text-sm"
         >
           Novo — SaaS para barbearias
         </Badge>
 
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white max-w-4xl">
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground max-w-4xl">
           Agende em segundos.{" "}
-          <span className="text-zinc-400">Lotado todo dia.</span>
+          <span className="text-muted-foreground">Lotado todo dia.</span>
         </h1>
 
-        <p className="mt-6 text-lg md:text-xl text-zinc-400 max-w-2xl">
+        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl">
           A plataforma de agendamento que sua barbearia precisava. Clientes
           agendam sozinhos, você foca no corte.
         </p>
@@ -37,7 +37,7 @@ export default function HomePage() {
           <Button
             size="lg"
             variant="outline"
-            className="h-12 px-8 text-base border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white"
+            className="h-12 px-8 text-base border-border text-foreground/80 hover:bg-muted hover:text-foreground"
             asChild
           >
             <Link href="/precos">Ver preços</Link>
@@ -47,39 +47,39 @@ export default function HomePage() {
 
       <section className="px-4 pb-24 md:pb-32">
         <div className="mx-auto max-w-7xl grid gap-6 md:grid-cols-3">
-          <Card className="bg-zinc-900 border-zinc-800 ring-zinc-800">
+          <Card className="bg-card border-border ring-zinc-800">
             <CardHeader>
-              <Calendar className="size-8 text-white mb-3" />
-              <CardTitle className="text-white text-lg">
+              <Calendar className="size-8 text-foreground mb-3" />
+              <CardTitle className="text-foreground text-lg">
                 Agenda inteligente
               </CardTitle>
-              <CardDescription className="text-zinc-400 text-sm leading-relaxed">
+              <CardDescription className="text-muted-foreground text-sm leading-relaxed">
                 Sem conflitos de horário. A agenda se organiza sozinha,
                 bloqueando slots já ocupados automaticamente.
               </CardDescription>
             </CardHeader>
           </Card>
 
-          <Card className="bg-zinc-900 border-zinc-800 ring-zinc-800">
+          <Card className="bg-card border-border ring-zinc-800">
             <CardHeader>
-              <CreditCard className="size-8 text-white mb-3" />
-              <CardTitle className="text-white text-lg">
+              <CreditCard className="size-8 text-foreground mb-3" />
+              <CardTitle className="text-foreground text-lg">
                 Pagamento automático
               </CardTitle>
-              <CardDescription className="text-zinc-400 text-sm leading-relaxed">
+              <CardDescription className="text-muted-foreground text-sm leading-relaxed">
                 Cobrança online integrada ao Stripe. Receba antes do corte e
                 elimine faltas sem aviso.
               </CardDescription>
             </CardHeader>
           </Card>
 
-          <Card className="bg-zinc-900 border-zinc-800 ring-zinc-800">
+          <Card className="bg-card border-border ring-zinc-800">
             <CardHeader>
-              <BarChart3 className="size-8 text-white mb-3" />
-              <CardTitle className="text-white text-lg">
+              <BarChart3 className="size-8 text-foreground mb-3" />
+              <CardTitle className="text-foreground text-lg">
                 Dashboard completo
               </CardTitle>
-              <CardDescription className="text-zinc-400 text-sm leading-relaxed">
+              <CardDescription className="text-muted-foreground text-sm leading-relaxed">
                 Acompanhe métricas, faturamento e histórico de clientes em
                 tempo real. Tudo em um só lugar.
               </CardDescription>

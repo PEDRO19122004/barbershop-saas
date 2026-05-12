@@ -90,7 +90,7 @@ export function BookingFlow({ barbershop, services, barbers }: Props) {
     <div className="max-w-3xl mx-auto px-6 py-8">
       <Stepper currentStep={step} />
 
-      <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 md:p-10 mt-8">
+      <div className="bg-card/50 border border-border rounded-xl p-6 md:p-10 mt-8">
         <div
           key={step}
           className="animate-in fade-in slide-in-from-right-4 duration-300"
@@ -150,7 +150,7 @@ export function BookingFlow({ barbershop, services, barbers }: Props) {
             variant="ghost"
             onClick={goBack}
             disabled={step === 1}
-            className="text-zinc-400 hover:text-white"
+            className="text-muted-foreground hover:text-foreground"
           >
             Voltar
           </Button>

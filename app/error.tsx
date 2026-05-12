@@ -18,7 +18,7 @@ export default function ErrorPage({
   }, [error]);
 
   return (
-    <div className="min-h-screen bg-zinc-950 flex items-center justify-center px-6">
+    <div className="min-h-screen bg-background flex items-center justify-center px-6">
       <div className="max-w-md w-full text-center space-y-6">
         {/* Ícone de aviso */}
         <div className="flex justify-center">
@@ -29,10 +29,10 @@ export default function ErrorPage({
 
         {/* Texto */}
         <div className="space-y-3">
-          <h1 className="text-3xl font-bold text-white">
+          <h1 className="text-3xl font-bold text-foreground">
             Ops! Algo deu errado
           </h1>
-          <p className="text-zinc-400">
+          <p className="text-muted-foreground">
             Encontramos um problema inesperado. Tente novamente em instantes —
             se persistir, entre em contato com o suporte.
           </p>
@@ -52,7 +52,7 @@ export default function ErrorPage({
             Tentar novamente
           </Button>
 
-          <Button asChild variant="outline" className="gap-2 border-zinc-800">
+          <Button asChild variant="outline" className="gap-2 border-border">
             <Link href="/">
               <Home className="w-4 h-4" />
               Voltar pro início
@@ -61,8 +61,8 @@ export default function ErrorPage({
         </div>
 
         {/* Footer */}
-        <div className="pt-8 border-t border-zinc-800">
-          <p className="text-xs text-zinc-500">
+        <div className="pt-8 border-t border-border">
+          <p className="text-xs text-muted-foreground">
             BarberSaaS — Agendamento para Barbearias
           </p>
         </div>

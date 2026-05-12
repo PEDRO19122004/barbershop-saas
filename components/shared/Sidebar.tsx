@@ -50,13 +50,13 @@ export function Sidebar({ user, barbershop }: SidebarProps) {
   const pathname = usePathname()
 
   return (
-    <div className="flex min-h-screen w-64 flex-col border-r border-zinc-800 bg-zinc-950">
+    <div className="flex min-h-screen w-64 flex-col border-r border-border bg-background">
       {/* Logo */}
       <div className="px-6 py-6">
-        <span className="text-xl font-bold text-white">BarberSaaS</span>
+        <span className="text-xl font-bold text-foreground">BarberSaaS</span>
       </div>
 
-      <div className="border-t border-zinc-800" />
+      <div className="border-t border-border" />
 
       {/* Navigation */}
       <nav className="flex-1 space-y-1 px-3 py-4">
@@ -72,8 +72,8 @@ export function Sidebar({ user, barbershop }: SidebarProps) {
               className={cn(
                 "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                 isActive
-                  ? "bg-zinc-800 text-white"
-                  : "text-zinc-400 hover:bg-zinc-900 hover:text-white"
+                  ? "bg-muted text-foreground"
+                  : "text-muted-foreground hover:bg-card hover:text-foreground"
               )}
             >
               <Icon size={18} />
@@ -82,15 +82,15 @@ export function Sidebar({ user, barbershop }: SidebarProps) {
           )
         })}
 
-        <div className="my-2 border-t border-zinc-800" />
+        <div className="my-2 border-t border-border" />
 
         <Link
           href="/dashboard/assinatura"
           className={cn(
             "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
             pathname.startsWith("/dashboard/assinatura")
-              ? "bg-zinc-800 text-white"
-              : "text-zinc-400 hover:bg-zinc-900 hover:text-white"
+              ? "bg-muted text-foreground"
+              : "text-muted-foreground hover:bg-card hover:text-foreground"
           )}
         >
           <CreditCard size={18} />
@@ -99,10 +99,10 @@ export function Sidebar({ user, barbershop }: SidebarProps) {
       </nav>
 
       {/* Footer */}
-      <div className="border-t border-zinc-800 p-3">
+      <div className="border-t border-border p-3">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <button className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors hover:bg-zinc-900">
+            <button className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors hover:bg-card">
               <Avatar size="sm">
                 {user.image && <AvatarImage src={user.image} alt={user.name} />}
                 <AvatarFallback className="bg-zinc-700 text-zinc-200 text-xs">
@@ -110,18 +110,18 @@ export function Sidebar({ user, barbershop }: SidebarProps) {
                 </AvatarFallback>
               </Avatar>
               <div className="flex min-w-0 flex-1 flex-col text-left">
-                <span className="truncate text-sm font-medium text-white">
+                <span className="truncate text-sm font-medium text-foreground">
                   {user.name}
                 </span>
-                <span className="truncate text-xs text-zinc-500">
+                <span className="truncate text-xs text-muted-foreground">
                   {user.email}
                 </span>
               </div>
-              <ChevronUp size={16} className="shrink-0 text-zinc-500" />
+              <ChevronUp size={16} className="shrink-0 text-muted-foreground" />
             </button>
           </DropdownMenuTrigger>
           <DropdownMenuContent side="top" className="w-56">
-            <DropdownMenuLabel className="text-xs text-zinc-400 font-normal">
+            <DropdownMenuLabel className="text-xs text-muted-foreground font-normal">
               {barbershop.name}
             </DropdownMenuLabel>
             <DropdownMenuSeparator />

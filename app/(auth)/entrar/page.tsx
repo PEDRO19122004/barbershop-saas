@@ -46,10 +46,10 @@ export default function SignInPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
           Bem-vindo de volta
         </h1>
-        <p className="mt-2 text-zinc-400">
+        <p className="mt-2 text-muted-foreground">
           Entre para gerenciar sua barbearia
         </p>
       </div>
@@ -66,7 +66,7 @@ export default function SignInPage() {
       <Button
         type="button"
         variant="outline"
-        className="h-11 w-full gap-3 border-zinc-800 bg-zinc-900/50 text-white transition-all duration-200 hover:bg-zinc-800/60 hover:text-white disabled:opacity-50"
+        className="h-11 w-full gap-3 border-border bg-card/50 text-foreground transition-all duration-200 hover:bg-muted/60 hover:text-foreground disabled:opacity-50"
         onClick={handleGoogle}
         disabled={isLoading}
       >
@@ -79,16 +79,16 @@ export default function SignInPage() {
       </Button>
 
       <div className="flex items-center gap-0">
-        <div className="h-px flex-1 bg-zinc-800" />
-        <span className="bg-zinc-950 px-4 text-xs text-zinc-500">
+        <div className="h-px flex-1 bg-muted" />
+        <span className="bg-background px-4 text-xs text-muted-foreground">
           ou continue com email
         </span>
-        <div className="h-px flex-1 bg-zinc-800" />
+        <div className="h-px flex-1 bg-muted" />
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <div className="space-y-1.5">
-          <Label htmlFor="email" className="text-zinc-300">
+          <Label htmlFor="email" className="text-foreground/80">
             Email
           </Label>
           <Input
@@ -96,7 +96,7 @@ export default function SignInPage() {
             type="email"
             placeholder="seu@email.com"
             autoComplete="email"
-            className="h-11 border-zinc-800 bg-zinc-900/50 text-white placeholder:text-zinc-600 transition-all duration-200 focus-visible:border-zinc-600 focus-visible:ring-zinc-700/50"
+            className="h-11 border-border bg-card/50 text-foreground placeholder:text-zinc-600 transition-all duration-200 focus-visible:border-zinc-600 focus-visible:ring-zinc-700/50"
             {...register("email")}
           />
           {errors.email && (
@@ -105,7 +105,7 @@ export default function SignInPage() {
         </div>
 
         <div className="space-y-1.5">
-          <Label htmlFor="password" className="text-zinc-300">
+          <Label htmlFor="password" className="text-foreground/80">
             Senha
           </Label>
           <Input
@@ -113,7 +113,7 @@ export default function SignInPage() {
             type="password"
             placeholder="••••••••"
             autoComplete="current-password"
-            className="h-11 border-zinc-800 bg-zinc-900/50 text-white placeholder:text-zinc-600 transition-all duration-200 focus-visible:border-zinc-600 focus-visible:ring-zinc-700/50"
+            className="h-11 border-border bg-card/50 text-foreground placeholder:text-zinc-600 transition-all duration-200 focus-visible:border-zinc-600 focus-visible:ring-zinc-700/50"
             {...register("password")}
           />
           {errors.password && (
@@ -137,11 +137,11 @@ export default function SignInPage() {
         </Button>
       </form>
 
-      <p className="text-center text-sm text-zinc-500">
+      <p className="text-center text-sm text-muted-foreground">
         Ainda não tem conta?{" "}
         <Link
           href="/cadastrar"
-          className="text-zinc-300 underline-offset-4 transition-colors duration-200 hover:text-white hover:underline"
+          className="text-foreground/80 underline-offset-4 transition-colors duration-200 hover:text-foreground hover:underline"
         >
           Cadastre-se
         </Link>

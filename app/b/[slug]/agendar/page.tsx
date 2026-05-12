@@ -43,12 +43,12 @@ export default async function BookingPage({
       <div className="max-w-3xl mx-auto px-6 py-6 flex items-center justify-between">
         <Link
           href={`/b/${slug}`}
-          className="flex items-center gap-1 text-sm text-zinc-400 hover:text-white transition-colors"
+          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
           <ChevronLeft className="h-4 w-4" />
           Voltar para a barbearia
         </Link>
-        <span className="text-sm text-zinc-500">{barbershop.name}</span>
+        <span className="text-sm text-muted-foreground">{barbershop.name}</span>
       </div>
 
       <BookingFlow

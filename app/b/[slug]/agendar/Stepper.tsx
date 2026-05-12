@@ -9,9 +9,9 @@ export function Stepper({ currentStep }: { currentStep: number }) {
   return (
     <>
       {/* Mobile */}
-      <div className="md:hidden text-center text-sm text-zinc-400 mb-6">
+      <div className="md:hidden text-center text-sm text-muted-foreground mb-6">
         Passo {currentStep} de {STEPS.length}:{" "}
-        <span className="text-white font-medium">{STEPS[currentStep - 1]}</span>
+        <span className="text-foreground font-medium">{STEPS[currentStep - 1]}</span>
       </div>
 
       {/* Desktop */}
@@ -29,7 +29,7 @@ export function Stepper({ currentStep }: { currentStep: number }) {
                     "w-8 h-8 rounded-full border-2 flex items-center justify-center text-sm font-medium transition-colors",
                     isCompleted || isCurrent
                       ? "bg-white text-zinc-950 border-white"
-                      : "bg-transparent text-zinc-500 border-zinc-700"
+                      : "bg-transparent text-muted-foreground border-border"
                   )}
                 >
                   {isCompleted ? <Check className="w-4 h-4" /> : step}
@@ -37,7 +37,7 @@ export function Stepper({ currentStep }: { currentStep: number }) {
                 <span
                   className={cn(
                     "text-xs mt-2 whitespace-nowrap",
-                    isCompleted || isCurrent ? "text-white" : "text-zinc-500"
+                    isCompleted || isCurrent ? "text-foreground" : "text-muted-foreground"
                   )}
                 >
                   {label}
@@ -48,7 +48,7 @@ export function Stepper({ currentStep }: { currentStep: number }) {
                 <div
                   className={cn(
                     "flex-1 h-px mx-3 mb-5 transition-colors",
-                    step < currentStep ? "bg-white" : "bg-zinc-800"
+                    step < currentStep ? "bg-white" : "bg-muted"
                   )}
                 />
               )}

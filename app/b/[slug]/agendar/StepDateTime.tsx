@@ -65,8 +65,8 @@ export function StepDateTime({
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-white">Escolha a data e horário</h2>
-      <p className="text-zinc-400 mt-1">Selecione quando você quer ser atendido</p>
+      <h2 className="text-xl font-bold text-foreground">Escolha a data e horário</h2>
+      <p className="text-muted-foreground mt-1">Selecione quando você quer ser atendido</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         {/* Calendar */}
@@ -77,35 +77,35 @@ export function StepDateTime({
             onSelect={handleDateSelect}
             disabled={(d) => d < today || d > maxDate}
             locale={ptBR}
-            className="rounded-xl border border-zinc-800 bg-zinc-900 p-3"
+            className="rounded-xl border border-border bg-card p-3"
           />
         </div>
 
         {/* Slots */}
         <div>
           <div className="mb-3">
-            <p className="font-semibold text-white">Horários disponíveis</p>
+            <p className="font-semibold text-foreground">Horários disponíveis</p>
             {date && (
-              <p className="text-sm text-zinc-400 mt-0.5 capitalize">
+              <p className="text-sm text-muted-foreground mt-0.5 capitalize">
                 {format(date, "EEEE, d 'de' MMMM", { locale: ptBR })}
               </p>
             )}
           </div>
 
           {!date && (
-            <p className="text-zinc-500 text-sm">Selecione uma data ao lado</p>
+            <p className="text-muted-foreground text-sm">Selecione uma data ao lado</p>
           )}
 
           {date && isLoadingSlots && (
             <div className="grid grid-cols-3 gap-2">
               {Array.from({ length: 9 }).map((_, i) => (
-                <Skeleton key={i} className="h-10 rounded-md bg-zinc-800" />
+                <Skeleton key={i} className="h-10 rounded-md bg-muted" />
               ))}
             </div>
           )}
 
           {date && !isLoadingSlots && slots !== null && slots.length === 0 && (
-            <p className="text-zinc-500 text-sm">
+            <p className="text-muted-foreground text-sm">
               Nenhum horário disponível neste dia. Tente outra data.
             </p>
           )}
@@ -120,7 +120,7 @@ export function StepDateTime({
                     "py-2 rounded-md border text-sm font-medium transition-colors",
                     selectedSlot === slot
                       ? "border-white bg-white text-zinc-950"
-                      : "border-zinc-800 text-zinc-300 hover:border-zinc-600"
+                      : "border-border text-foreground/80 hover:border-zinc-600"
                   )}
                 >
                   {slot}

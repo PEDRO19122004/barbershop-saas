@@ -6,7 +6,7 @@ export default function AuthLayout({
   return (
     <div className="grid min-h-screen md:grid-cols-2">
       {/* Left: Form */}
-      <div className="flex min-h-screen items-center justify-center bg-zinc-950 p-8 md:p-12 lg:p-16">
+      <div className="flex min-h-screen items-center justify-center bg-background p-8 md:p-12 lg:p-16">
         <div className="w-full max-w-md animate-in fade-in slide-in-from-left-8 duration-700">
           {children}
         </div>
@@ -75,7 +75,7 @@ export default function AuthLayout({
 
         {/* Logo top-left */}
         <div className="absolute left-8 top-8 z-10">
-          <span className="text-sm font-semibold tracking-wide text-zinc-500">
+          <span className="text-sm font-semibold tracking-wide text-muted-foreground">
             BarberSaaS
           </span>
         </div>
@@ -84,12 +84,12 @@ export default function AuthLayout({
         <div className="relative z-10 max-w-sm px-10 animate-in fade-in duration-1000">
           <blockquote className="space-y-5">
             <div className="h-px w-10 bg-zinc-600" />
-            <p className="text-xl font-medium leading-relaxed text-white/85">
+            <p className="text-xl font-medium leading-relaxed text-foreground/85">
               &ldquo;Nossa agenda sempre cheia, clientes satisfeitos e zero dor
               de cabeça com gestão. A melhor decisão que tomei pro meu
               negócio.&rdquo;
             </p>
-            <footer className="text-sm text-zinc-500">
+            <footer className="text-sm text-muted-foreground">
               — Marcos Silva, Barbearia Reis
             </footer>
           </blockquote>

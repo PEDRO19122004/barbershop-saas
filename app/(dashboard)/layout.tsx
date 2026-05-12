@@ -30,7 +30,7 @@ export default async function DashboardLayout({
   const sidebarBarbershop = { name: barbershop.name, slug: barbershop.slug }
 
   return (
-    <div className="flex min-h-screen bg-zinc-950">
+    <div className="flex min-h-screen bg-background">
       <div className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
         <Sidebar user={sidebarUser} barbershop={sidebarBarbershop} />
       </div>

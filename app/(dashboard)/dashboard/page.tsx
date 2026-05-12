@@ -55,80 +55,80 @@ export default async function DashboardOverviewPage() {
     <div className="space-y-8">
       {/* Heading */}
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-white">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">
           Olá, {firstName}! 👋
         </h1>
-        <p className="mt-1 text-zinc-400">
+        <p className="mt-1 text-muted-foreground">
           Bem-vindo ao seu painel. Por aqui você gerencia tudo.
         </p>
       </div>
 
       {/* Metrics */}
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-card border-border">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-zinc-400">
+            <CardTitle className="text-sm font-medium text-muted-foreground">
               Próximos agendamentos
             </CardTitle>
             <Calendar className="h-5 w-5 text-zinc-600" />
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-bold text-white">{metrics.totalUpcoming}</p>
+            <p className="text-3xl font-bold text-foreground">{metrics.totalUpcoming}</p>
           </CardContent>
         </Card>
 
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-card border-border">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-zinc-400">
+            <CardTitle className="text-sm font-medium text-muted-foreground">
               Hoje
             </CardTitle>
             <Clock className="h-5 w-5 text-zinc-600" />
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-bold text-white">{metrics.todayCount}</p>
+            <p className="text-3xl font-bold text-foreground">{metrics.todayCount}</p>
           </CardContent>
         </Card>
 
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-card border-border">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-zinc-400">
+            <CardTitle className="text-sm font-medium text-muted-foreground">
               Faturamento da semana
             </CardTitle>
             <DollarSign className="h-5 w-5 text-zinc-600" />
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-bold text-white">
+            <p className="text-3xl font-bold text-foreground">
               {formatCurrency(metrics.weekRevenueInCents)}
             </p>
           </CardContent>
         </Card>
 
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-card border-border">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-zinc-400">
+            <CardTitle className="text-sm font-medium text-muted-foreground">
               Total realizados
             </CardTitle>
             <CheckCircle className="h-5 w-5 text-zinc-600" />
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-bold text-white">{metrics.completedCount}</p>
+            <p className="text-3xl font-bold text-foreground">{metrics.completedCount}</p>
           </CardContent>
         </Card>
       </div>
 
       {/* Upcoming appointments */}
-      <Card className="bg-zinc-900 border-zinc-800">
+      <Card className="bg-card border-border">
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-base font-semibold text-white">
+          <CardTitle className="text-base font-semibold text-foreground">
             Próximos 5 agendamentos
           </CardTitle>
-          <Button asChild variant="ghost" size="sm" className="text-zinc-400 hover:text-white">
+          <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
             <Link href="/dashboard/agenda">Ver todos</Link>
           </Button>
         </CardHeader>
         <CardContent>
           {upcoming.length === 0 ? (
-            <p className="text-center text-sm text-zinc-500 py-6">
+            <p className="text-center text-sm text-muted-foreground py-6">
               Nenhum agendamento futuro
             </p>
           ) : (
@@ -139,24 +139,24 @@ export default async function DashboardOverviewPage() {
                   className="flex items-center justify-between py-3"
                 >
                   <div>
-                    <p className="font-medium text-white text-sm">
+                    <p className="font-medium text-foreground text-sm">
                       {appt.customer.name}
                     </p>
-                    <p className="text-xs text-zinc-500 mt-0.5">
+                    <p className="text-xs text-muted-foreground mt-0.5">
                       {format(new Date(appt.startTime), "dd/MM/yyyy", { locale: ptBR })}
                       {" · "}
                       {format(new Date(appt.startTime), "HH:mm")}
                     </p>
                   </div>
                 <div className="flex items-center gap-2">
-  <span className="text-sm text-zinc-400">{appt.service.name}</span>
+  <span className="text-sm text-muted-foreground">{appt.service.name}</span>
   {(() => {
     const statusMap: Record<string, { label: string; className: string }> = {
       PENDING: { label: "Pendente", className: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20" },
       CONFIRMED: { label: "Confirmado", className: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
       COMPLETED: { label: "Concluído", className: "bg-green-500/10 text-green-400 border-green-500/20" },
       CANCELED: { label: "Cancelado", className: "bg-red-500/10 text-red-400 border-red-500/20" },
-      NO_SHOW: { label: "Não compareceu", className: "bg-zinc-500/10 text-zinc-400 border-zinc-500/20" },
+      NO_SHOW: { label: "Não compareceu", className: "bg-zinc-500/10 text-muted-foreground border-zinc-500/20" },
     };
     const meta = statusMap[appt.status] ?? statusMap.PENDING;
     return (
@@ -174,9 +174,9 @@ export default async function DashboardOverviewPage() {
       </Card>
 
       {/* Getting started */}
-      <Card className="bg-zinc-900 border-zinc-800">
+      <Card className="bg-card border-border">
         <CardHeader>
-          <CardTitle className="text-base font-semibold text-white">
+          <CardTitle className="text-base font-semibold text-foreground">
             Primeiros passos
           </CardTitle>
         </CardHeader>
@@ -185,18 +185,18 @@ export default async function DashboardOverviewPage() {
             <Link
               key={step.href}
               href={step.href}
-              className="group flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-zinc-800"
+              className="group flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-muted"
             >
               {step.done ? (
                 <CheckCircle2 className="h-5 w-5 shrink-0 text-green-500" />
               ) : (
-                <div className="h-5 w-5 shrink-0 rounded border border-zinc-700" />
+                <div className="h-5 w-5 shrink-0 rounded border border-border" />
               )}
               <span
                 className={
                   step.done
-                    ? "flex-1 text-sm text-zinc-500 line-through"
-                    : "flex-1 text-sm text-zinc-300"
+                    ? "flex-1 text-sm text-muted-foreground line-through"
+                    : "flex-1 text-sm text-foreground/80"
                 }
               >
                 {step.label}

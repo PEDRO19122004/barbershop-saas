@@ -93,8 +93,8 @@ useEffect(() => {
     <div className="space-y-6">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Barbeiros</h1>
-          <p className="text-zinc-400 mt-1">Cadastre os profissionais da sua equipe.</p>
+          <h1 className="text-2xl font-bold text-foreground">Barbeiros</h1>
+          <p className="text-muted-foreground mt-1">Cadastre os profissionais da sua equipe.</p>
         </div>
         <Button onClick={openCreate}>
           <Plus className="mr-2 size-4" />
@@ -103,11 +103,11 @@ useEffect(() => {
       </div>
 
       {barbers.length === 0 ? (
-        <div className="rounded-lg border border-dashed border-zinc-800 p-12 flex flex-col items-center text-center gap-4">
+        <div className="rounded-lg border border-dashed border-border p-12 flex flex-col items-center text-center gap-4">
           <Users className="size-12 text-zinc-600" />
           <div>
-            <p className="text-base font-medium text-white">Nenhum barbeiro cadastrado ainda</p>
-            <p className="text-sm text-zinc-500 mt-1">
+            <p className="text-base font-medium text-foreground">Nenhum barbeiro cadastrado ainda</p>
+            <p className="text-sm text-muted-foreground mt-1">
               Cadastre os profissionais que atendem na sua barbearia
             </p>
           </div>
@@ -118,7 +118,7 @@ useEffect(() => {
           {barbers.map((barber) => (
             <div
               key={barber.id}
-              className="bg-zinc-900 border border-zinc-800 rounded-lg p-6 relative"
+              className="bg-card border border-border rounded-lg p-6 relative"
             >
               <div className="flex items-start justify-between">
                 <Avatar className="size-16">
@@ -128,7 +128,7 @@ useEffect(() => {
 
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="icon" className="size-8 text-zinc-400 hover:text-white hover:bg-zinc-800">
+                    <Button variant="ghost" size="icon" className="size-8 text-muted-foreground hover:text-foreground hover:bg-muted">
   <MoreVertical className="size-4" />
                       <span className="sr-only">Ações</span>
                     </Button>
@@ -149,9 +149,9 @@ useEffect(() => {
                 </DropdownMenu>
               </div>
 
-              <p className="text-lg font-semibold text-white mt-3">{barber.name}</p>
+              <p className="text-lg font-semibold text-foreground mt-3">{barber.name}</p>
               {barber.bio && (
-                <p className="text-sm text-zinc-400 line-clamp-2 mt-1">{barber.bio}</p>
+                <p className="text-sm text-muted-foreground line-clamp-2 mt-1">{barber.bio}</p>
               )}
 
               <div className="mt-4">
@@ -160,7 +160,7 @@ useEffect(() => {
                     Ativo
                   </Badge>
                 ) : (
-                  <Badge variant="outline" className="text-zinc-500 border-zinc-700">
+                  <Badge variant="outline" className="text-muted-foreground border-border">
                     Inativo
                   </Badge>
                 )}
@@ -185,7 +185,7 @@ useEffect(() => {
             <DialogTitle>Excluir barbeiro</DialogTitle>
             <DialogDescription>
               Tem certeza que deseja excluir{" "}
-              <span className="font-medium text-white">{deleteTarget?.name}</span>? Esta ação não
+              <span className="font-medium text-foreground">{deleteTarget?.name}</span>? Esta ação não
               pode ser desfeita.
             </DialogDescription>
           </DialogHeader>

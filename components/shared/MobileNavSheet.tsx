@@ -17,7 +17,7 @@ export function MobileNavSheet({ user, barbershop }: MobileNavSheetProps) {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden text-zinc-400 hover:text-white">
+        <Button variant="ghost" size="icon" className="md:hidden text-muted-foreground hover:text-foreground">
           <Menu className="h-5 w-5" />
           <span className="sr-only">Abrir menu de navegação</span>
         </Button>
@@ -25,7 +25,7 @@ export function MobileNavSheet({ user, barbershop }: MobileNavSheetProps) {
       <SheetContent
         side="left"
         showCloseButton={false}
-        className="p-0 w-64 bg-zinc-950 border-zinc-800"
+        className="p-0 w-64 bg-background border-border"
       >
         <Sidebar user={user} barbershop={barbershop} />
       </SheetContent>

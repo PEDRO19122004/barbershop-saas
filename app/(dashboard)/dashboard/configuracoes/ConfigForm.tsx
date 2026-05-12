@@ -66,14 +66,14 @@ export function ConfigForm({ barbershop }: ConfigFormProps) {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-white">Configurações</h1>
-        <p className="text-zinc-400 mt-1">
+        <h1 className="text-2xl font-bold text-foreground">Configurações</h1>
+        <p className="text-muted-foreground mt-1">
           Edite as informações que seus clientes vão ver na página pública.
         </p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="max-w-2xl rounded-lg border border-zinc-800 bg-zinc-900 p-6 space-y-6">
+        <div className="max-w-2xl rounded-lg border border-border bg-card p-6 space-y-6">
           <div className="space-y-1.5">
             <Label htmlFor="name">Nome da barbearia</Label>
             <Input id="name" {...register("name")} />
@@ -82,13 +82,13 @@ export function ConfigForm({ barbershop }: ConfigFormProps) {
 
           <div className="space-y-1.5">
             <Label htmlFor="slug">URL pública</Label>
-            <div className="flex items-center rounded-md border border-zinc-700 overflow-hidden focus-within:ring-2 focus-within:ring-zinc-600">
-              <span className="bg-zinc-800 text-zinc-400 px-3 py-2 text-sm border-r border-zinc-700 whitespace-nowrap shrink-0">
+            <div className="flex items-center rounded-md border border-border overflow-hidden focus-within:ring-2 focus-within:ring-zinc-600">
+              <span className="bg-muted text-muted-foreground px-3 py-2 text-sm border-r border-border whitespace-nowrap shrink-0">
                 barbersaas.com/b/
               </span>
               <input
                 id="slug"
-                className="flex-1 bg-transparent px-3 py-2 text-sm text-white outline-none placeholder:text-zinc-500"
+                className="flex-1 bg-transparent px-3 py-2 text-sm text-foreground outline-none placeholder:text-muted-foreground"
                 {...register("slug")}
               />
             </div>
@@ -99,7 +99,7 @@ export function ConfigForm({ barbershop }: ConfigFormProps) {
                 href={`/b/${slug}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+                className="text-xs text-muted-foreground hover:text-foreground/80 transition-colors"
               >
                 Ver página pública →
               </a>

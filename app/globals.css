@@ -49,98 +49,98 @@
 }
 
 :root {
-  /* === BARBERSAAS — PREMIUM DOURADO === */
+  /* Vintage Clássico — Couro & Whisky */
 
-  /* Backgrounds */
-  --background: #0A0A0A;
-  --foreground: #F5E6C8;
+  /* Backgrounds — Marrom escuro coureo (não preto puro!) */
+  --background: #1A120D;
+  --foreground: #F0E5D0;
 
-  /* Cards */
-  --card: #1A1A1A;
-  --card-foreground: #F5E6C8;
+  /* Cards — Marrom couro envelhecido */
+  --card: #2A1F17;
+  --card-foreground: #F0E5D0;
 
   /* Popover */
-  --popover: #1A1A1A;
-  --popover-foreground: #F5E6C8;
+  --popover: #2A1F17;
+  --popover-foreground: #F0E5D0;
 
-  /* Primary — Dourado champagne */
-  --primary: #D4AF37;
-  --primary-foreground: #0A0A0A;
+  /* Primary — Cobre / Caramelo vintage */
+  --primary: #C19A6B;
+  --primary-foreground: #1A120D;
 
   /* Secondary */
-  --secondary: #2A2620;
-  --secondary-foreground: #F5E6C8;
+  --secondary: #3D2F22;
+  --secondary-foreground: #F0E5D0;
 
   /* Muted */
-  --muted: #1F1F1F;
-  --muted-foreground: #A8A29E;
+  --muted: #251A12;
+  --muted-foreground: #B8A48C;
 
-  /* Accent */
-  --accent: #3A3530;
-  --accent-foreground: #D4AF37;
+  /* Accent — Marrom whisky */
+  --accent: #5D3A1F;
+  --accent-foreground: #E8C588;
 
-  /* Destructive */
-  --destructive: #991B1B;
+  /* Destructive — Bordô vintage */
+  --destructive: #7C2D1F;
   --destructive-foreground: #FEE2E2;
 
   /* Borders + inputs */
-  --border: #2E2A24;
-  --input: #1F1F1F;
-  --ring: #D4AF37;
-
-  /* Charts */
-  --chart-1: #D4AF37;
-  --chart-2: #10B981;
-  --chart-3: #EAB308;
-  --chart-4: #A855F7;
-  --chart-5: #EF4444;
+  --border: #5D3A1F;
+  --input: #251A12;
+  --ring: #C19A6B;
 
   /* Sidebar */
-  --sidebar: #0F0F0F;
-  --sidebar-foreground: #F5E6C8;
-  --sidebar-primary: #D4AF37;
-  --sidebar-primary-foreground: #0A0A0A;
-  --sidebar-accent: #2A2620;
-  --sidebar-accent-foreground: #D4AF37;
-  --sidebar-border: #2E2A24;
-  --sidebar-ring: #D4AF37;
+  --sidebar: #14100B;
+  --sidebar-foreground: #F0E5D0;
+  --sidebar-primary: #C19A6B;
+  --sidebar-primary-foreground: #1A120D;
+  --sidebar-accent: #3D2F22;
+  --sidebar-accent-foreground: #E8C588;
+  --sidebar-border: #5D3A1F;
+  --sidebar-ring: #C19A6B;
+
+  /* Charts */
+  --chart-1: #C19A6B;
+  --chart-2: #8B4513;
+  --chart-3: #DEB887;
+  --chart-4: #A0522D;
+  --chart-5: #722F37;
 
   --radius: 0.625rem;
 }
 
 .dark {
-  --background: #0A0A0A;
-  --foreground: #F5E6C8;
-  --card: #1A1A1A;
-  --card-foreground: #F5E6C8;
-  --popover: #1A1A1A;
-  --popover-foreground: #F5E6C8;
-  --primary: #D4AF37;
-  --primary-foreground: #0A0A0A;
-  --secondary: #2A2620;
-  --secondary-foreground: #F5E6C8;
-  --muted: #1F1F1F;
-  --muted-foreground: #A8A29E;
-  --accent: #3A3530;
-  --accent-foreground: #D4AF37;
-  --destructive: #991B1B;
+  --background: #1A120D;
+  --foreground: #F0E5D0;
+  --card: #2A1F17;
+  --card-foreground: #F0E5D0;
+  --popover: #2A1F17;
+  --popover-foreground: #F0E5D0;
+  --primary: #C19A6B;
+  --primary-foreground: #1A120D;
+  --secondary: #3D2F22;
+  --secondary-foreground: #F0E5D0;
+  --muted: #251A12;
+  --muted-foreground: #B8A48C;
+  --accent: #5D3A1F;
+  --accent-foreground: #E8C588;
+  --destructive: #7C2D1F;
   --destructive-foreground: #FEE2E2;
-  --border: #2E2A24;
-  --input: #1F1F1F;
-  --ring: #D4AF37;
-  --chart-1: #D4AF37;
-  --chart-2: #10B981;
-  --chart-3: #EAB308;
-  --chart-4: #A855F7;
-  --chart-5: #EF4444;
-  --sidebar: #0F0F0F;
-  --sidebar-foreground: #F5E6C8;
-  --sidebar-primary: #D4AF37;
-  --sidebar-primary-foreground: #0A0A0A;
-  --sidebar-accent: #2A2620;
-  --sidebar-accent-foreground: #D4AF37;
-  --sidebar-border: #2E2A24;
-  --sidebar-ring: #D4AF37;
+  --border: #5D3A1F;
+  --input: #251A12;
+  --ring: #C19A6B;
+  --sidebar: #14100B;
+  --sidebar-foreground: #F0E5D0;
+  --sidebar-primary: #C19A6B;
+  --sidebar-primary-foreground: #1A120D;
+  --sidebar-accent: #3D2F22;
+  --sidebar-accent-foreground: #E8C588;
+  --sidebar-border: #5D3A1F;
+  --sidebar-ring: #C19A6B;
+  --chart-1: #C19A6B;
+  --chart-2: #8B4513;
+  --chart-3: #DEB887;
+  --chart-4: #A0522D;
+  --chart-5: #722F37;
 }
 
 @layer base {

@@ -88,22 +88,22 @@ export function HoursForm({ initialHours }: HoursFormProps) {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-white">Horário de funcionamento</h1>
-        <p className="text-zinc-400 mt-1">
+        <h1 className="text-2xl font-bold text-foreground">Horário de funcionamento</h1>
+        <p className="text-muted-foreground mt-1">
           Configure os dias e horários em que sua barbearia recebe clientes.
         </p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="rounded-lg border border-zinc-800 bg-zinc-900">
+        <div className="rounded-lg border border-border bg-card">
           {fields.map((field, index) => {
             const isClosed = watch(`days.${index}.isClosed`)
             return (
               <div
                 key={field.id}
-                className="flex items-center gap-4 px-4 py-3 border-b border-zinc-800 last:border-0"
+                className="flex items-center gap-4 px-4 py-3 border-b border-border last:border-0"
               >
-                <span className="w-36 text-sm text-white font-medium shrink-0">
+                <span className="w-36 text-sm text-foreground font-medium shrink-0">
                   {DAY_NAMES[field.dayOfWeek]}
                 </span>
 
@@ -117,7 +117,7 @@ export function HoursForm({ initialHours }: HoursFormProps) {
                     }
                     size="sm"
                   />
-                  <span className="text-xs text-zinc-400 w-14">
+                  <span className="text-xs text-muted-foreground w-14">
                     {isClosed ? "Fechado" : "Aberto"}
                   </span>
                 </div>
@@ -128,14 +128,14 @@ export function HoursForm({ initialHours }: HoursFormProps) {
                   <div className="flex items-center gap-2">
                     <Input
   type="time"
-  className="w-28 h-8 text-sm bg-zinc-800 border-zinc-700 text-white [color-scheme:dark]"
+  className="w-28 h-8 text-sm bg-muted border-border text-foreground [color-scheme:dark]"
   disabled={isClosed}
   {...register(`days.${index}.openTime`)}
 />
-                    <span className="text-zinc-400 text-sm">às</span>
+                    <span className="text-muted-foreground text-sm">às</span>
                    <Input
   type="time"
-  className="w-28 h-8 text-sm bg-zinc-800 border-zinc-700 text-white [color-scheme:dark]"
+  className="w-28 h-8 text-sm bg-muted border-border text-foreground [color-scheme:dark]"
   disabled={isClosed}
   {...register(`days.${index}.openTime`)}
 />

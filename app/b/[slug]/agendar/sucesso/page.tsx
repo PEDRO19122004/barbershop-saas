@@ -34,14 +34,14 @@ export default async function BookingSuccessPage({
     <div className="container max-w-md mx-auto px-6 py-12 text-center">
       <CheckCircle2 className="h-16 w-16 text-green-500 mx-auto animate-in zoom-in duration-500" />
 
-      <h1 className="text-2xl font-bold text-white mt-4">
+      <h1 className="text-2xl font-bold text-foreground mt-4">
         Agendamento confirmado!
       </h1>
-      <p className="text-zinc-400 mt-2">
+      <p className="text-muted-foreground mt-2">
         Você receberá uma confirmação em breve.
       </p>
 
-      <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 mt-8 text-left divide-y divide-zinc-800">
+      <div className="bg-card border border-border rounded-xl p-6 mt-8 text-left divide-y divide-zinc-800">
         <SummaryRow label="Barbearia" value={appointment.barbershop.name} />
         <SummaryRow label="Serviço" value={appointment.service.name} />
         <SummaryRow label="Profissional" value={appointment.barber.name} />
@@ -80,9 +80,9 @@ function SummaryRow({
 }) {
   return (
     <div className="py-3 flex justify-between gap-4">
-      <span className="text-sm text-zinc-400 shrink-0">{label}</span>
+      <span className="text-sm text-muted-foreground shrink-0">{label}</span>
       <span
-        className={`text-sm text-white text-right ${capitalize ? "capitalize" : ""}`}
+        className={`text-sm text-foreground text-right ${capitalize ? "capitalize" : ""}`}
       >
         {value}
       </span>

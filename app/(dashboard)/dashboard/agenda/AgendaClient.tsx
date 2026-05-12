@@ -82,7 +82,7 @@ const STATUS_CLASSES: Record<AppointmentStatus, string> = {
   COMPLETED:
     "bg-green-500/10 text-green-400 border border-green-500/20 hover:bg-green-500/10",
   CANCELLED:
-    "bg-zinc-500/10 text-zinc-400 border border-zinc-500/20 hover:bg-zinc-500/10",
+    "bg-zinc-500/10 text-muted-foreground border border-zinc-500/20 hover:bg-zinc-500/10",
   NO_SHOW:
     "bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/10",
   PENDING:
@@ -111,10 +111,10 @@ function MetricCard({
   icon: React.ElementType
 }) {
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 flex items-start justify-between">
+    <div className="bg-card border border-border rounded-xl p-5 flex items-start justify-between">
       <div>
-        <p className="text-sm text-zinc-400">{label}</p>
-        <p className="text-2xl font-bold text-white mt-2">{value}</p>
+        <p className="text-sm text-muted-foreground">{label}</p>
+        <p className="text-2xl font-bold text-foreground mt-2">{value}</p>
       </div>
       <Icon className="text-zinc-600" size={20} />
     </div>
@@ -157,8 +157,8 @@ export function AgendaClient({ appointments, metrics, currentFilter }: Props) {
     <div className="space-y-0">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-white">Agenda</h1>
-        <p className="mt-1 text-zinc-400">
+        <h1 className="text-2xl font-bold text-foreground">Agenda</h1>
+        <p className="mt-1 text-muted-foreground">
           Gerencie todos os agendamentos da sua barbearia
         </p>
       </div>
@@ -208,29 +208,29 @@ export function AgendaClient({ appointments, metrics, currentFilter }: Props) {
 
       {/* List */}
       {appointments.length === 0 ? (
-        <Card className="border-dashed border-zinc-700 bg-transparent">
+        <Card className="border-dashed border-border bg-transparent">
           <CardContent className="flex flex-col items-center justify-center py-16 text-center">
             <Calendar className="text-zinc-700 mb-4" size={40} />
-            <p className="text-zinc-300 font-medium">
+            <p className="text-foreground/80 font-medium">
               Nenhum agendamento neste período
             </p>
-            <p className="text-zinc-500 text-sm mt-1">
+            <p className="text-muted-foreground text-sm mt-1">
               Os agendamentos vão aparecer aqui conforme os clientes forem marcando.
             </p>
           </CardContent>
         </Card>
       ) : (
-        <Card className="border-zinc-800 bg-zinc-900">
+        <Card className="border-border bg-card">
           <Table>
             <TableHeader>
-              <TableRow className="border-zinc-800 hover:bg-transparent">
-                <TableHead className="text-zinc-400">Data</TableHead>
-                <TableHead className="text-zinc-400">Horário</TableHead>
-                <TableHead className="text-zinc-400">Cliente</TableHead>
-                <TableHead className="text-zinc-400">Serviço</TableHead>
-                <TableHead className="text-zinc-400">Profissional</TableHead>
-                <TableHead className="text-zinc-400">Valor</TableHead>
-                <TableHead className="text-zinc-400">Status</TableHead>
+              <TableRow className="border-border hover:bg-transparent">
+                <TableHead className="text-muted-foreground">Data</TableHead>
+                <TableHead className="text-muted-foreground">Horário</TableHead>
+                <TableHead className="text-muted-foreground">Cliente</TableHead>
+                <TableHead className="text-muted-foreground">Serviço</TableHead>
+                <TableHead className="text-muted-foreground">Profissional</TableHead>
+                <TableHead className="text-muted-foreground">Valor</TableHead>
+                <TableHead className="text-muted-foreground">Status</TableHead>
                 <TableHead className="w-10" />
               </TableRow>
             </TableHeader>
@@ -238,38 +238,38 @@ export function AgendaClient({ appointments, metrics, currentFilter }: Props) {
               {appointments.map((appt) => (
                 <TableRow
                   key={appt.id}
-                  className="border-zinc-800 hover:bg-zinc-900/50"
+                  className="border-border hover:bg-card/50"
                 >
                   <TableCell>
-                    <p className="text-white text-sm">
+                    <p className="text-foreground text-sm">
                       {format(new Date(appt.startTime), "dd/MM/yyyy")}
                     </p>
-                    <p className="text-xs text-zinc-500 mt-0.5">
+                    <p className="text-xs text-muted-foreground mt-0.5">
                       {capitalize(
                         format(new Date(appt.startTime), "EEEE", { locale: ptBR })
                       )}
                     </p>
                   </TableCell>
                   <TableCell>
-                    <span className="font-mono text-white text-sm">
+                    <span className="font-mono text-foreground text-sm">
                       {format(new Date(appt.startTime), "HH:mm")}
                     </span>
                   </TableCell>
                   <TableCell>
-                    <p className="font-medium text-white text-sm">
+                    <p className="font-medium text-foreground text-sm">
                       {appt.customer.name}
                     </p>
-                    <p className="text-xs text-zinc-500 mt-0.5">
+                    <p className="text-xs text-muted-foreground mt-0.5">
                       {appt.customer.phone}
                     </p>
                   </TableCell>
-                  <TableCell className="text-zinc-300 text-sm">
+                  <TableCell className="text-foreground/80 text-sm">
                     {appt.service.name}
                   </TableCell>
-                  <TableCell className="text-zinc-300 text-sm">
+                  <TableCell className="text-foreground/80 text-sm">
                     {appt.barber.name}
                   </TableCell>
-                  <TableCell className="text-zinc-300 text-sm">
+                  <TableCell className="text-foreground/80 text-sm">
                     {formatCurrency(appt.priceInCents)}
                   </TableCell>
                   <TableCell>
@@ -283,29 +283,29 @@ export function AgendaClient({ appointments, metrics, currentFilter }: Props) {
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-8 w-8 text-zinc-400 hover:text-white"
+                          className="h-8 w-8 text-muted-foreground hover:text-foreground"
                           disabled={isPending}
                         >
                           <MoreHorizontal size={16} />
                           <span className="sr-only">Ações</span>
                         </Button>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end" className="bg-zinc-900 border-zinc-800">
+                      <DropdownMenuContent align="end" className="bg-card border-border">
                         {appt.status === "CONFIRMED" ? (
                           <>
                             <DropdownMenuItem
-                              className="text-zinc-300 hover:text-white focus:text-white cursor-pointer"
+                              className="text-foreground/80 hover:text-foreground focus:text-foreground cursor-pointer"
                               onClick={() => handleStatusChange(appt.id, "COMPLETED")}
                             >
                               Marcar como concluído
                             </DropdownMenuItem>
                             <DropdownMenuItem
-                              className="text-zinc-300 hover:text-white focus:text-white cursor-pointer"
+                              className="text-foreground/80 hover:text-foreground focus:text-foreground cursor-pointer"
                               onClick={() => handleStatusChange(appt.id, "NO_SHOW")}
                             >
                               Cliente não compareceu
                             </DropdownMenuItem>
-                            <DropdownMenuSeparator className="bg-zinc-800" />
+                            <DropdownMenuSeparator className="bg-muted" />
                             <DropdownMenuItem
                               className="text-red-400 hover:text-red-300 focus:text-red-300 cursor-pointer"
                               onClick={() => setCancelId(appt.id)}
@@ -315,7 +315,7 @@ export function AgendaClient({ appointments, metrics, currentFilter }: Props) {
                           </>
                         ) : (
                           <DropdownMenuItem
-                            className="text-zinc-300 hover:text-white focus:text-white cursor-pointer"
+                            className="text-foreground/80 hover:text-foreground focus:text-foreground cursor-pointer"
                             onClick={() => handleStatusChange(appt.id, "CONFIRMED")}
                           >
                             Reabrir como confirmado
@@ -333,10 +333,10 @@ export function AgendaClient({ appointments, metrics, currentFilter }: Props) {
 
       {/* Cancel confirmation dialog */}
       <Dialog open={cancelId !== null} onOpenChange={(open) => !open && setCancelId(null)}>
-        <DialogContent className="bg-zinc-900 border-zinc-800">
+        <DialogContent className="bg-card border-border">
           <DialogHeader>
-            <DialogTitle className="text-white">Cancelar agendamento</DialogTitle>
-            <DialogDescription className="text-zinc-400">
+            <DialogTitle className="text-foreground">Cancelar agendamento</DialogTitle>
+            <DialogDescription className="text-muted-foreground">
               Tem certeza que deseja cancelar este agendamento? Esta ação não pode ser
               desfeita facilmente.
             </DialogDescription>
