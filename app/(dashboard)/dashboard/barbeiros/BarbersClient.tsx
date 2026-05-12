@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Plus, Users, MoreVertical, Loader2 } from "lucide-react"
 import { toast } from "sonner"
@@ -43,6 +43,11 @@ function getInitials(name: string) {
 export function BarbersClient({ barbers: initialBarbers }: BarbersClientProps) {
   const router = useRouter()
   const [barbers, setBarbers] = useState(initialBarbers)
+
+// Sincroniza state quando o server traz dados novos
+useEffect(() => {
+  setBarbers(initialBarbers)
+}, [initialBarbers])
   const [dialogOpen, setDialogOpen] = useState(false)
   const [barberInEdit, setBarberInEdit] = useState<Barber | undefined>()
   const [deleteTarget, setDeleteTarget] = useState<Barber | undefined>()

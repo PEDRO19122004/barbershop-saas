@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Plus, Scissors, MoreHorizontal, Loader2 } from "lucide-react"
 import { toast } from "sonner"
@@ -41,6 +41,9 @@ interface ServicesClientProps {
 export function ServicesClient({ services: initialServices }: ServicesClientProps) {
   const router = useRouter()
   const [services, setServices] = useState(initialServices)
+  useEffect(() => {
+  setServices(initialServices)
+}, [initialServices])
   const [dialogOpen, setDialogOpen] = useState(false)
   const [serviceInEdit, setServiceInEdit] = useState<Service | undefined>()
   const [deleteTarget, setDeleteTarget] = useState<Service | undefined>()
