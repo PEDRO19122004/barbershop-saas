@@ -225,4 +225,17 @@ enum AppointmentStatus {
   CANCELLED  // cancelado (por cliente ou barbeiro)
   NO_SHOW    // cliente não apareceu (métrica importante)
 }
- 
+// =====================================================
+// SECURITY
+// =====================================================
+
+// Rate limiting de endpoints publicos (ex: agendamento publico).
+// Armazena timestamps de tentativas por chave (ex: "booking:<ip>").
+// Cleanup oportunistico feito no codigo da aplicacao.
+model RateLimit {
+  id        String   @id @default(cuid())
+  key       String
+  createdAt DateTime @default(now())
+
+  @@index([key, createdAt])
+}
