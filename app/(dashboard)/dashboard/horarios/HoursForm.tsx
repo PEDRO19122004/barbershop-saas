@@ -137,7 +137,7 @@ export function HoursForm({ initialHours }: HoursFormProps) {
   type="time"
   className="w-28 h-8 text-sm bg-muted border-border text-foreground [color-scheme:dark]"
   disabled={isClosed}
-  {...register(`days.${index}.openTime`)}
+  {...register(`days.${index}.closeTime`)}
 />
                   </div>
                 )}
